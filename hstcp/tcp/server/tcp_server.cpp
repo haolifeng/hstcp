@@ -363,6 +363,7 @@ int CTcpServer::DelConnect(uint32_t nIndex)
 	uint32_t index = nIndex&INDEX_LOW_MASK;
 	if( index < MAX_ONLINE_CONNECT_COUNT )
 	{
+		m_lpConnectPool->ReleaseConnect(m_lpConnectArray[index]);
 		m_lpConnectArray[index] = NULL;
 	}
 	return 0;
