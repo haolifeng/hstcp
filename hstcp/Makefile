@@ -64,7 +64,7 @@ tcp_server.$(TO):./tcp/server/tcp_server.cpp
 	$(CC) $(CFLAGS) ./tcp/server/tcp_server.cpp $(INCDIR)
 
 $(EXES):$(OBJS)
-	$(LD) $(LFLAGS) -o$(OUTDIR)/$(LIB_PRE)$(EXES)$(LIB_EXT) $(OBJ) $(STDLIBS) $(DEFLIBS) $(LIBPATH)
+	$(LD) $(LFLAGS) -o$(OUTDIR)/$(LIB_PRE)$(EXES)$(LIB_EXT) $(OBJS) $(STDLIBS) $(DEFLIBS) $(LIBPATH)
 
 cleanobj:
 	$(RMOBJ)

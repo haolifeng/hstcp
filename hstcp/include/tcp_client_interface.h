@@ -56,6 +56,7 @@ public:
 class ITcpClientCreator{
 protected:
 	virtual ~ITcpClientCreator(){}
+public:
 	 virtual int Init(int32_t iSendThreadCount = 1, int32_t iRecvThreadCount = 1 ) = 0;
 
     virtual int CreateTcpClient(
@@ -71,8 +72,8 @@ protected:
 extern "C"{
 #endif
 
-ITcpClientCreator* GetClientCreator();//
-int DestroyClientCreator(ITcpClientCreator* lpClientCreator);
+ITcpClientCreator* GetTcpClientCreator();//
+int DestroyTcpClientCreator(ITcpClientCreator* lpClientCreator);
 
 #ifdef __cplusplus
 }

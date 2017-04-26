@@ -1,5 +1,9 @@
 #include "protocol.h"
 #include "client_sample.h"
+#include <stdlib.h>
+#include <string.h>
+#include <signal.h>
+#include <unistd.h>
 #include <string>
 #include <iostream>
 using namespace std;
@@ -85,7 +89,7 @@ void sigint_handler(int sig)
 	{
 		case SIGINT:
 		case SIGTERM:
-			g_nStart=false;
+			g_bStart=false;
 			break;
 		default:
 			break;
@@ -94,8 +98,8 @@ void sigint_handler(int sig)
 }
 int main(int argc,char* argv[])
 {
-	ITcpClientCreator *pTcpClientCreator = GetClientCreator();
-	if(pTcpCleintCreator == NULL)
+	ITcpClientCreator *pTcpClientCreator = GetTcpClientCreator();
+	if(pTcpClientCreator == NULL)
 	{
 		cout<<"fail to get client creator"<<endl;
 		exit(1);
@@ -127,6 +131,6 @@ int main(int argc,char* argv[])
 	{
 		sleep(1);
 	}
-	DestroyClientCreator(pTcpClientCreator);
+	DestroyTcpClientCreator(pTcpClientCreator);
 
 }
